@@ -19,6 +19,6 @@ else
     subject=$SUBJECT
 fi
 
-swakscmd="swaks -S --tls-optional --server $server --from $from --to $to --body $@ --header 'Subject: $subject'"
+swakscmd="swaks -S --tls-optional --server $server --from $from --to $to --body '$@' --header 'Subject: $subject'"
 
 seq $runs | parallel -j$jobs -n0 $swakscmd :::
